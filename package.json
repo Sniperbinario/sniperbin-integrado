@@ -1,18 +1,15 @@
 {
   "name": "sniperbin-integrado",
   "version": "1.0.0",
-  "description": "SniperBin com integração em tempo real com WebSocket",
-  "main": "index.js",
+  "description": "SniperBin com gráfico ao vivo integrado",
+  "main": "src/index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build"
+    "start": "node src/index.js",
+    "build": "echo 'Nenhum build necessário para projeto simples.'"
   },
   "dependencies": {
     "apexcharts": "^4.0.0",
-    "react": "^18.2.0",
     "react-apexcharts": "^1.4.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "ws": "^8.17.0"
+    "ws": "^8.18.1"
   }
 }
