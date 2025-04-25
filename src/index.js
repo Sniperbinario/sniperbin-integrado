@@ -1,12 +1,14 @@
-
 const WebSocket = require('ws');
-const wss = new WebSocket.Server({ port: 3000 });
-console.log("Servidor WebSocket ativo na porta 3000.");
+const express = require('express');
+const app = express();
+const server = require('http').createServer(app);
+const wss = new WebSocket.Server({ server });
 
-wss.on('connection', (ws) => {
-  console.log("Cliente conectado!");
-  setInterval(() => {
-    const data = JSON.stringify({ price: (Math.random() * 100 + 1000).toFixed(2) });
-    ws.send(data);
-  }, 1000);
+wss.on('connection', function connection(ws) {
+  console.log('Cliente conectado ao WebSocket');
+  ws.send(JSON.stringify({ msg: 'Conexão WebSocket estabelecida com sucesso!' }));
+});
+
+server.listen(3000, () => {
+  console.log('Servidor WebSocket e HTTP rodando na porta 3000');
 });

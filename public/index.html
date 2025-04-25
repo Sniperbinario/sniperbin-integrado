@@ -1,1 +1,18 @@
-// Conteúdo fictício de index.html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>SniperBin (Live)</title>
+</head>
+<body>
+  <h1>SniperBin (Live Data)</h1>
+  <p id="status">Aguardando dados em tempo real...</p>
+  <script>
+    const ws = new WebSocket("ws://localhost:3000");
+    ws.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      document.getElementById("status").textContent = data.msg;
+    };
+  </script>
+</body>
+</html>

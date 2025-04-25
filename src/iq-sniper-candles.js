@@ -1,1 +1,0 @@
-// Conteúdo fictício de iq-sniper-candles.js
